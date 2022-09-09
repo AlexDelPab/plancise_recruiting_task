@@ -32,7 +32,7 @@ export class LecturersController {
     return this.lecturersService.remove(+id);
   }
 
-  @Get('populate')
+  @Post('/populate')
   populate(){
     return this.lecturersService.populate();
   }

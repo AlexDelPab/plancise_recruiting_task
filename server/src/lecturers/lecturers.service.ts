@@ -15,7 +15,7 @@ export class LecturersService {
   }
 
   findAll() {
-    return `This action returns all lecturers`;
+    return this.lecturerRepository.find();
   }
 
   findOne(id: number) {
@@ -32,6 +32,9 @@ export class LecturersService {
 
   populate() {
     const lecturers = ['Professor Sokolov', 'Professor Rakitic', 'Professor Muller'];
-    lecturers.forEach(l => this.create({name: l}));
+    // lecturers.forEach(l => this.create({name: l}));
+
+    const lEntities = lecturers.map(l => this.lecturerRepository.create({name: l}));
+    this.lecturerRepository.save(lEntities)
   }
 }

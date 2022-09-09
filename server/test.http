@@ -1,0 +1,5 @@
+POST http://localhost:3000/lecturers/populate
+###
+GET http://localhost:3000/students/populate
+###
+GET http://localhost:3000/lecturers
