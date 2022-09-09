@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { CreateCourse } from './pages/CreateCourse';
 import { Home } from './pages/Home';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<div />} />
+        <Route path="create" element={<CreateCourse />} />
       </Routes>
     </div>
   );
