@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
+import { Student } from './entities/student.entity';
 
 @Injectable()
 export class StudentsService {
+  constructor(@InjectRepository(Student) private studentRepository: Repository<Student>){};
+  
   create(createStudentDto: CreateStudentDto) {
-    return 'This action adds a new student';
+    const student = this.studentRepository.create(createStudentDto);
+    return this.studentRepository.save(student);
   }
 
   findAll() {
@@ -22,5 +28,10 @@ export class StudentsService {
 
   remove(id: number) {
     return `This action removes a #${id} student`;
+  }
+
+  populate() {
+    const lecturers = ['I. Sadsdasd', 'K. Sfsdfsdf', 'S. Asdasdas'];
+    lecturers.forEach(s => this.create({name: s}));
   }
 }

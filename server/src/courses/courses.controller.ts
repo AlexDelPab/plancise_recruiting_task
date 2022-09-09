@@ -22,10 +22,10 @@ export class CoursesController {
     return this.coursesService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
-    return this.coursesService.update(+id, updateCourseDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
+  //   return this.coursesService.update(+id, updateCourseDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

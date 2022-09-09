@@ -1,1 +1,3 @@
-export class CreateLecturerDto {}
+export class CreateLecturerDto {
+    name: string;
+}

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Course } from "src/courses/entities/course.entity";
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Student {
@@ -8,5 +9,6 @@ export class Student {
   @Column()
   name: string;
 
-  
+  @ManyToMany(type => Course, course => course.id)
+  courses: Course[];
 }
