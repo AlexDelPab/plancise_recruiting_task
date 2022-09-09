@@ -31,4 +31,9 @@ export class StudentsController {
   remove(@Param('id') id: string) {
     return this.studentsService.remove(+id);
   }
+
+  @Get('populate')
+  populate(){
+    return this.studentsService.populate();
+  }
 }
